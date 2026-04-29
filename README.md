@@ -6,7 +6,28 @@ classical baselines to gradient boosting to time-series foundation models.
 
 ## Status
 
-Week 1 in progress — data ingestion + LightGBM baseline.
+## Status
+
+**Week 1 / Day 3 complete.** Master modeling dataset assembled.
+
+| File | Rows | Columns | Description |
+|------|------|---------|-------------|
+| `data/processed/dataset.parquet` | 55,392 | 37 | Joined hourly data, Jan 2020 - Apr 2026, ML-ready |
+
+Features include: day-ahead price (target), actual + forecast load, day-ahead
+solar/wind forecasts, per-fuel generation actuals (14 fuels + 3 aggregates),
+population-weighted national weather (temp/humidity/pressure/sunshine/cloud),
+and per-city wind speeds for 7 German cities.
+
+## Data summary
+
+| Series              | Rows   | Columns | Description |
+|---------------------|--------|---------|-------------|
+| prices              | 55,392 | 1       | DE-LU day-ahead prices, EUR/MWh, hourly avg |
+| load_actual         | 55,391 | 1       | Actual demand, MW |
+| load_forecast       | 55,391 | 1       | Day-ahead load forecast, MW |
+| generation_actual   | 55,391 | 25      | Per-fuel-type generation incl. wind/solar/nuclear/coal/gas |
+| wind_solar_forecast | 55,391 | 3       | Day-ahead forecasts: Wind Onshore, Wind Offshore, Solar |
 
 ## Goals
 
